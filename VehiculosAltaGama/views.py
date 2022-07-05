@@ -25,7 +25,7 @@ def inicio(request):
 
 
 
-def formularioCamionetas(request):
+def formulariocamionetas(request):
     if request.method == "POST":
         miFormulario = CamionetaFormulario(request.POST) 
         print(miFormulario)
@@ -42,7 +42,7 @@ def formularioCamionetas(request):
         return render(request, 'VehiculosAltaGama/formulariocamionetas.html',{'miformulario': miFormulario})        
     
 
-def formularioDeportivos(request):
+def formulariodeportivos(request):
     if request.method == "POST":
         miFormulario = DeportivoFormulario(request.POST) 
         print(miFormulario)
@@ -58,7 +58,7 @@ def formularioDeportivos(request):
         
         return render(request, 'VehiculosAltaGama/formulariodeportivos.html',{'miformulario': miFormulario})  
     
-def formularioSedan(request):
+def formulariosedan(request):
         if request.method == "POST":
             miFormulario = SedanFormulario(request.POST) 
             print(miFormulario)
