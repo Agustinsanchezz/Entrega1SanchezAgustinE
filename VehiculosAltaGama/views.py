@@ -32,7 +32,7 @@ def formularioCamionetas(request):
         
         if CamionetaFormulario.is_valid:
             informacion = miFormulario.cleaned_data
-            auto = Camioneta (marca = informacion["Marca"],modelo = informacion["Modelo"],color = informacion["Color"], anio = informacion["Año"], precio = informacion["Precio"])
+            auto = camionetas (marca = informacion["Marca"],modelo = informacion["Modelo"],color = informacion["Color"], anio = informacion["Año"], precio = informacion["Precio"])
             auto.save()
             return render(request, 'VehiculosAltaGama/inicio.html')
         
@@ -49,7 +49,7 @@ def formularioDeportivos(request):
         
         if DeportivoFormulario.is_valid:
             informacion = miFormulario.cleaned_data
-            auto = Camioneta (marca = informacion["Marca"],modelo = informacion["Modelo"],color = informacion["Color"], anio = informacion["Año"], precio = informacion["Precio"])
+            auto = sport (marca = informacion["Marca"],modelo = informacion["Modelo"],color = informacion["Color"], anio = informacion["Año"], precio = informacion["Precio"])
             auto.save()
             return render(request, 'VehiculosAltaGama/inicio.html')
         
@@ -65,11 +65,11 @@ def formularioSedan(request):
         
         if SedanFormulario.is_valid:
             informacion = miFormulario.cleaned_data
-            auto = Camioneta (marca = informacion["Marca"],modelo = informacion["Modelo"],color = informacion["Color"], anio = informacion["Año"], precio = informacion["Precio"])
+            auto = sedan (marca = informacion["Marca"],modelo = informacion["Modelo"],color = informacion["Color"], anio = informacion["Año"], precio = informacion["Precio"])
             auto.save()
             return render(request, 'VehiculosAltaGama/inicio.html')
         
         else:
             miFormulario = SedanFormulario()
         
-        return render(request, 'VehiculosAltaGama/formularioautos.html',{'miformulario': miFormulario})  
+        return render(request, 'VehiculosAltaGama/formulariosedan.html',{'miformulario': miFormulario})  
