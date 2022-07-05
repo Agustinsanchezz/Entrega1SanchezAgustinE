@@ -1,0 +1,32 @@
+{% extends "VehiculosAltaGama/padre.html" %}
+{% load static%}
+{% block ContenidoQueVaACambiar %}
+
+<section class="py-5">
+    <div class="container px-4 px-lg-5 mt-5">
+        <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+    
+           
+            <div class="col mb-5">
+                <div class="card h-100">
+                    <!-- Product image-->
+                    <img class="card-img-top" src="https://2.bp.blogspot.com/-X6MMaE2HX_k/WalbQwVEUyI/AAAAAAAAVJY/rUKRdh-ZIlsfD9IGYek9A30gPpa1VRtqgCLcBGAs/s1600/Ficha-Tecnica-bmw-m3-f80.jpg"
+                    <!-- Product details-->
+                    <div class="card-body p-4">
+                        <div class="text-center">
+                            <!-- Product name-->
+                            <p>Marca:{{Deportivo.marca}}</p>
+                            <p>Modelo:{{Deportivo.modelo}}</p>
+                            <p>Color:{{Deportivo.color}}</p>
+                            <p>Año: {{Deportivo.anio}}</p>
+                            <p>Precio:{{Deportivo.precio}}</p>
+                        </div>
+                    </div>
+                
+                    </div>
+                </div>
+            </div>
+
+
+
+{% endblock %}

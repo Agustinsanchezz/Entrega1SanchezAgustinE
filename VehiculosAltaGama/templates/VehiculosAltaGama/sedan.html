@@ -1,0 +1,32 @@
+{% extends "VehiculosAltaGama/padre.html" %}
+{% load static%}
+{% block ContenidoQueVaACambiar %}
+
+<section class="py-5">
+    <div class="container px-4 px-lg-5 mt-5">
+        <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+    
+           
+            <div class="col mb-5">
+                <div class="card h-100">
+                    <!-- Product image-->
+                    <img class="card-img-top" src="https://acroadtrip.blob.core.windows.net/catalogo-imagenes/m/RT_V_c88631ea35814ee9a4e29a313763d8fc.jpg"
+                    <!-- Product details-->
+                    <div class="card-body p-4">
+                        <div class="text-center">
+                            <!-- Product name-->
+                            <p>Marca:{{Sedan.marca}}</p>
+                            <p>Modelo:{{Sedan.modelo}}</p>
+                            <p>Color:{{Sedan.color}}</p>
+                            <p>Año: {{Sedan.anio}}</p>
+                            <p>Precio:{{Sedan.precio}}</p>
+                        </div>
+                    </div>
+                
+                    </div>
+                </div>
+            </div>
+
+
+
+{% endblock %}
