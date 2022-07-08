@@ -24,3 +24,6 @@ class DeportivoFormulario(forms.Form):
     color = forms.CharField(max_length=20)
     anio = forms.IntegerField()
     precio = forms.IntegerField()
+    
+    
+    
