@@ -6,27 +6,31 @@
     <div class="container px-4 px-lg-5 mt-5">
         <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
     
+        {% if auto %}
+            {% for i in auto %}    
            
-            <div class="col mb-5">
-                <div class="card h-100">
-                    <!-- Product image-->
-                    <img class="card-img-top" src="https://tn.com.ar/resizer/kHyJD-0VhtzgPwR4V9LyfIhp-Vk=/767x0/smart/cloudfront-us-east-1.images.arcpublishing.com/artear/B7IN3EEWX6NM3UPPRPITI3B26U.jpg"
-                    <!-- Product details-->
-                    <div class="card-body p-4">
-                        <div class="text-center">
-                            <!-- Product name-->
-                            <p>Marca:{{Camioneta.marca}}</p>
-                            <p>Modelo:{{Camioneta.modelo}}</p>
-                            <p>Color:{{Camioneta.color}}</p>
-                            <p>Año: {{Camioneta.anio}}</p>
-                            <p>Precio:{{Camioneta.precio}}</p>
+                <div class="col mb-5">
+                    <div class="card h-100">
+                        <!-- Product image-->
+                        <img class="card-img-top" src="https://tn.com.ar/resizer/kHyJD-0VhtzgPwR4V9LyfIhp-Vk=/767x0/smart/cloudfront-us-east-1.images.arcpublishing.com/artear/B7IN3EEWX6NM3UPPRPITI3B26U.jpg"
+                        <!-- Product details-->
+                        <div class="card-body p-4">
+                            <div class="text-center">
+                                <!-- Product name-->
+                                <p>Marca:{{i.marca}}</p>
+                                <p>Modelo:{{i.modelo}}</p>
+                                <p>Color:{{i.color}}</p>
+                                <p>Año: {{i.anio}}</p>
+                                <p>Precio:{{i.precio}}</p>
+                            </div>
+                        </div>
+                
                         </div>
                     </div>
-                
-                    </div>
                 </div>
-            </div>
 
+            {% endfor %}
+        {% endif %}
 
 
 {% endblock %}

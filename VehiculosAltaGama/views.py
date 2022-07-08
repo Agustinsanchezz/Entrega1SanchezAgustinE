@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+import VehiculosAltaGama
 from VehiculosAltaGama.models import Sedan, Camioneta, Deportivo
 from VehiculosAltaGama.forms import SedanFormulario, CamionetaFormulario, DeportivoFormulario
 
@@ -78,3 +79,18 @@ def formulario_sedan(request):
             miFormulario = SedanFormulario()
         
     return render(request, 'VehiculosAltaGama/formulario_sedan.html',{'miformulario': miFormulario})  
+
+
+
+def buscarCamioneta(request):
+    if request.GET.get("marca"):
+        #print(str(request.GET("marca").values()))
+        MODELO = request.GET.get("marca")
+        busqueda = Camioneta.objects.filter(modelo__icontains=MODELO)
+        return render(request, "VehiculosAltaGama/busqueda.html", {'Camionetahtml':busqueda})
+    else:
+        #print("ELSE")
+        busqueda = Camioneta.objects.all()
+        
+        return render(request,"VehiculosAltaGama/busqueda.html", {'Camionetahtml':busqueda})
+    

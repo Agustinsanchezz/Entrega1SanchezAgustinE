@@ -1,0 +1,48 @@
+{% extends "VehiculosAltaGama/padre.html" %}
+{% load static %}
+{% block ContenidoQueVaACambiar %}
+
+
+
+<div>
+    <form action="" method="POST">{% csrf_token %}
+        <div>
+            <b>Ingrese el Modelo:</b>
+            <input type="text" name="marca">
+            <input type="submit"  value="BUSCAR">
+        </div>
+    </form>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+        <th scope="col">marca</th>
+        <th scope="col">modelo</th>
+        <th scope="col">color</th>
+        <th scope="col">año</th>
+        <th scope="col">modelo</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% if Camionetahtml %}
+            {% for i in Camionetahtmll %}
+                <tr>
+                <td>{{i.marca}}</td>
+                <td>{{i.modelo}}</td>
+                <td>{{i.color}}</td>
+                <td>{{i.anio}}</td>
+                <td>{{i.precio}}</td>
+                </tr>
+            {% endfor %}
+        {% endif %}
+    </tbody>
+</table>
+
+
+
+
+
+
+
+{% endblock %}
