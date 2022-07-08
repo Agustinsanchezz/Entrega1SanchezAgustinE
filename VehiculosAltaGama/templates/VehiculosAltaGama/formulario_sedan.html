@@ -1,13 +1,18 @@
+{% extends "VehiculosAltaGama/padre.html" %}
+{% load static %}
+{% block ContenidoQueVaACambiar %}
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Formulario-Agregar Camioneta</title>
+  <title>Formulario-Agregar Vehiculo</title>
 </head>
 <body>
-    <form action="/formularioAutos/" method: "POST">
+    <form action="/formulario_sedan/" method: "POST"> {% csrf_token %}
         <p>Marca: <input type="text" name= "marca"></p>
         <p>Modelo: <input type="text" name= "modelo"></p>
         <p>Color: <input type="text" name="color"></p>
@@ -19,3 +24,5 @@
 
 </body>
 </html>
+
+{% endblock %}

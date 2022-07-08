@@ -6,7 +6,7 @@ urlpatterns = [
     path('sport',views.sport, name = "Sport"),
     path('sedan',views.sedan, name = "Sedan"),
     path('camioneta', views.camionetas, name = "Camioneta"),
-    path('formulario_sedan',views.formulariosedan, name = "FormularioSedan"),
-    path('formulario_deportivo', views.formulariodeportivos, name = "FormularioDeportivos"),
-    path('formulario_camionetas', views.formulariocamionetas, name = "FormularioCamionetas"),
+    path('formulario_sedan',views.formulario_sedan, name = "FormularioSedan"),
+    path('formulario_deportivo', views.formulario_deportivos, name = "FormularioDeportivos"),
+    path('formulario_camionetas', views.formulario_camionetas, name = "FormularioCamionetas"),
 ]

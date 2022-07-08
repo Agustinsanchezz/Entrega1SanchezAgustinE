@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from VehiculosAltaGama.models import Sedan, Camioneta, Deportivo
-from VehiculosAltaGama.forms import *
+from VehiculosAltaGama.forms import SedanFormulario, CamionetaFormulario, DeportivoFormulario
 
 # Create your views here.
 def sport(request):
@@ -21,55 +21,60 @@ def camionetas(request):
     return render(request, 'VehiculosAltaGama/Camionetas.html', contexto)
 
 def inicio(request):
-    return render(request, 'VehiculosAltaGama/inicio.html')
+    return render(request, 'VehiculosAltaGama/Inicio.html')
 
 
 
-def formulariocamionetas(request):
+def formulario_camionetas(request):
     if request.method == "POST":
-        miFormulario = CamionetaFormulario(request.POST) 
-        print(miFormulario)
-        
-        if CamionetaFormulario.is_valid:
-            informacion = miFormulario.cleaned_data
-            auto = camionetas (marca = informacion["Marca"],modelo = informacion["Modelo"],color = informacion["Color"], anio = informacion["Año"], precio = informacion["Precio"])
-            auto.save()
-            return render(request, 'VehiculosAltaGama/inicio.html')
-        
-        else:
-            miFormulario = CamionetaFormulario()
-        
-        return render(request, 'VehiculosAltaGama/formulariocamionetas.html',{'miformulario': miFormulario})        
-    
-
-def formulariodeportivos(request):
-    if request.method == "POST":
-        miFormulario = DeportivoFormulario(request.POST) 
-        print(miFormulario)
-        
-        if DeportivoFormulario.is_valid:
-            informacion = miFormulario.cleaned_data
-            auto = sport (marca = informacion["Marca"],modelo = informacion["Modelo"],color = informacion["Color"], anio = informacion["Año"], precio = informacion["Precio"])
-            auto.save()
-            return render(request, 'VehiculosAltaGama/inicio.html')
-        
-        else:
-            miFormulario = DeportivoFormulario()
-        
-        return render(request, 'VehiculosAltaGama/formulariodeportivos.html',{'miformulario': miFormulario})  
-    
-def formulariosedan(request):
-        if request.method == "POST":
-            miFormulario = SedanFormulario(request.POST) 
+            miFormulario = CamionetaFormulario(request.POST) 
             print(miFormulario)
         
-        if SedanFormulario.is_valid:
-            informacion = miFormulario.cleaned_data
-            auto = sedan (marca = informacion["Marca"],modelo = informacion["Modelo"],color = informacion["Color"], anio = informacion["Año"], precio = informacion["Precio"])
-            auto.save()
-            return render(request, 'VehiculosAltaGama/inicio.html')
+            if CamionetaFormulario.is_valid:
+                informacion = miFormulario.cleaned_data
+                auto = Camioneta (marca = informacion["Marca"],modelo = informacion["Modelo"],color = informacion["Color"], anio = informacion["Año"], precio = informacion["Precio"])
+                auto.save()
+                return render(request, 'VehiculosAltaGama/Inicio.html')
         
-        else:
+    else:
+            miFormulario = CamionetaFormulario()
+        
+    return render(request, 'VehiculosAltaGama/formulario_camionetas.html',{'miformulario': miFormulario})        
+    
+
+def formulario_deportivos(request):
+    if request.method == "POST":
+            miFormulario = DeportivoFormulario(request.POST) 
+            print(miFormulario)
+        
+            if DeportivoFormulario.is_valid:
+                informacion = miFormulario.cleaned_data
+                auto = Deportivo (marca = informacion["Marca"],modelo = informacion["Modelo"],color = informacion["Color"], anio = informacion["Año"], precio = informacion["Precio"])
+                auto.save()
+                return render(request, 'VehiculosAltaGama/Inicio.html')
+        
+    else:
+            miFormulario = DeportivoFormulario()
+        
+    return render(request, 'VehiculosAltaGama/formulario_deportivos.html',{'miformulario': miFormulario})  
+    
+def formulario_sedan(request):
+    if request.method == "POST":
+        
+            miFormulario = SedanFormulario(request.POST) 
+            
+            print(miFormulario)
+        
+            if SedanFormulario.is_valid:
+                informacion = miFormulario.cleaned_data
+                
+                auto = Sedan (marca = informacion["Marca"],modelo = informacion["Modelo"],color = informacion["Color"], anio = informacion["Año"], precio = informacion["Precio"])
+                
+                auto.save()
+                
+                return render(request, 'VehiculosAltaGama/Inicio.html')
+        
+    else:
             miFormulario = SedanFormulario()
         
-        return render(request, 'VehiculosAltaGama/formulariosedan.html',{'miformulario': miFormulario})  
+    return render(request, 'VehiculosAltaGama/formulario_sedan.html',{'miformulario': miFormulario})  
